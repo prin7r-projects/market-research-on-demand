@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://market-research-on-demand.prin7r.com/sitemap.xml

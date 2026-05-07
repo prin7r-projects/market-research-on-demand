@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Cited — Pitch Deck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,900;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4EFE6;
+    --ink: #1A1B1E;
+    --scarlet: #B22A2A;
+    --graphite: #6B6660;
+    --ochre: #C99A2D;
+    --paper-2: #EAE3D5;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  body {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 40px 16px;
+    background-image:
+      radial-gradient(rgba(26,27,30,0.018) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  .deck {
+    width: 100%; max-width: 980px;
+  }
+  .slide {
+    aspect-ratio: 16/9;
+    background: var(--paper);
+    border: 1px solid rgba(26,27,30,0.18);
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.04);
+    margin: 0 0 36px 0;
+    padding: 56px 64px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .slide::before {
+    content: ""; position: absolute; left: 64px; top: 36px; right: 64px;
+    height: 1px; background: var(--ink); opacity: .6;
+  }
+  .slide::after {
+    content: attr(data-num) " / 10";
+    position: absolute; right: 64px; bottom: 28px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--graphite);
+  }
+  .masthead {
+    position: absolute; left: 64px; top: 18px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 2px;
+    color: var(--graphite);
+    text-transform: uppercase;
+  }
+  .masthead .red { color: var(--scarlet); font-weight: 500; }
+  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; color: var(--ink); margin: 0; }
+  h1 { font-size: 96px; font-weight: 900; line-height: 0.95; letter-spacing: -2px; }
+  h1.lockup { font-size: 128px; }
+  h2 { font-size: 44px; font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; }
+  h3 { font-size: 22px; font-weight: 600; }
+  .sub { font-family: "Source Serif 4", Georgia, serif; font-style: italic; color: var(--graphite); font-size: 22px; }
+  .meta { font-family: "JetBrains Mono", monospace; color: var(--graphite); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .rule { display: block; height: 2px; width: 56px; background: var(--scarlet); margin: 18px 0; }
+  ul { padding-left: 0; list-style: none; }
+  ul li { position: relative; padding-left: 24px; margin: 10px 0; }
+  ul li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 12px; height: 1px; background: var(--scarlet);
+  }
+  table {
+    border-collapse: collapse; width: 100%;
+    font-size: 14px;
+  }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(26,27,30,.12); vertical-align: top; }
+  th { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--graphite); }
+  blockquote {
+    margin: 0; padding: 18px 24px;
+    border-left: 3px solid var(--scarlet);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 28px; line-height: 1.3;
+    color: var(--ink);
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+  .footnote-num {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    color: var(--scarlet); vertical-align: super;
+  }
+  .lockup-block {
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center; height: 100%;
+  }
+  .lockup-bar { display: block; height: 3px; width: 280px; background: var(--scarlet); margin: 4px 0 28px 0; }
+  .num-callout {
+    font-family: "Source Serif 4", Georgia, serif; font-size: 88px; font-weight: 900; color: var(--scarlet); line-height: 1;
+  }
+  .url-strip {
+    font-family: "JetBrains Mono", monospace; font-size: 14px; color: var(--scarlet);
+    letter-spacing: 0.5px; padding-top: 28px; border-top: 1px solid rgba(26,27,30,.18);
+    display: inline-block;
+  }
+  .row { display: flex; gap: 32px; align-items: flex-start; }
+  .row > * { flex: 1; }
+  .badge {
+    display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 9px; border: 1px solid var(--ink); color: var(--ink);
+  }
+  .badge.scarlet { color: var(--scarlet); border-color: var(--scarlet); }
+  .toc {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--graphite); text-align: center;
+    margin-bottom: 28px;
+  }
+  .toc a { color: var(--graphite); text-decoration: none; padding: 0 6px; }
+  .toc a:hover { color: var(--scarlet); }
+  @media print {
+    body { padding: 0; background: white; }
+    .toc { display: none; }
+    .slide { border: none; box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+  <nav class="toc">
+    <a href="#s1">01 Title</a>·
+    <a href="#s2">02 The 404 problem</a>·
+    <a href="#s3">03 Status quo</a>·
+    <a href="#s4">04 What Cited is</a>·
+    <a href="#s5">05 Why now</a>·
+    <a href="#s6">06 The wedge</a>·
+    <a href="#s7">07 Pricing</a>·
+    <a href="#s8">08 Traction</a>·
+    <a href="#s9">09 Engine</a>·
+    <a href="#s10">10 Close</a>
+  </nav>
+  <main class="deck">
+
+  <!-- 01 Title -->
+  <section class="slide" id="s1" data-num="01">
+    <div class="masthead">CITED <span class="red">·</span> 2026 <span class="red">·</span> PITCH</div>
+    <div class="lockup-block">
+      <h1 class="lockup">CITED.</h1>
+      <span class="lockup-bar"></span>
+      <p class="sub">Decision-grade market research. Fully cited. In 24-72 hours.</p>
+      <p class="meta" style="margin-top: 28px;">A Prin7r company</p>
+    </div>
+  </section>
+
+  <!-- 02 The 404 problem -->
+  <section class="slide" id="s2" data-num="02">
+    <div class="masthead">PROBLEM <span class="red">·</span> THE 404 PROBLEM</div>
+    <h2>Footnotes that don't resolve.</h2>
+    <span class="rule"></span>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="stack">
+        <div class="num-callout">11.4%</div>
+        <p>Of LLM-proposed citations don't resolve to the claim they support.<span class="footnote-num">1</span></p>
+      </div>
+      <div class="stack">
+        <div class="num-callout">6 / 10</div>
+        <p>Audited Q4-2025 venture decks had at least one cited URL that 404'd or pointed to the wrong page.<span class="footnote-num">2</span></p>
+      </div>
+    </div>
+    <p class="meta" style="margin-top: 32px;">The number you cite in a board meeting is only as good as the URL behind it.</p>
+  </section>
+
+  <!-- 03 What buyers do today -->
+  <section class="slide" id="s3" data-num="03">
+    <div class="masthead">STATUS QUO <span class="red">·</span> WHAT BUYERS DO TODAY</div>
+    <h2>Six alternatives. Each fails on a different axis.</h2>
+    <span class="rule"></span>
+    <table>
+      <thead><tr><th>Alternative</th><th>Failure mode</th></tr></thead>
+      <tbody>
+        <tr><td>McKinsey / Bain / BCG</td><td>6-12 weeks · $250k+ · no cited working files</td></tr>
+        <tr><td>Gartner / Forrester / CB Insights</td><td>Stale, generic, paywalled</td></tr>
+        <tr><td>Pitchbook</td><td>Tile-sheet of companies — no thesis</td></tr>
+        <tr><td>Upwork / Fiverr freelancer</td><td>No SLA, no editor, variable quality</td></tr>
+        <tr><td>Internal analyst</td><td>Capacity-bound and politically biased</td></tr>
+        <tr><td>ChatGPT / Perplexity Pro</td><td>Hallucinated sources, no editor, nobody on the hook</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 04 What Cited is -->
+  <section class="slide" id="s4" data-num="04">
+    <div class="masthead">SOLUTION <span class="red">·</span> WHAT CITED IS</div>
+    <h2>A productized research desk with an editor on the seal.</h2>
+    <span class="rule"></span>
+    <ul style="margin-top: 24px; font-size: 19px;">
+      <li>Customer submits a <strong>one-paragraph brief</strong>.</li>
+      <li>Engine drafts a footnoted dossier (Pipelex graph + LLMs in concert).</li>
+      <li>A senior editor <strong>round-trips every citation</strong> — fetches the URL, finds the excerpt, signs off.</li>
+      <li>Customer receives <strong>MDX + PDF + sources.json</strong> in 24-72 hours.</li>
+      <li>Same dossier can be re-run monthly with a delta-callout — that becomes the subscription.</li>
+    </ul>
+  </section>
+
+  <!-- 05 Why now -->
+  <section class="slide" id="s5" data-num="05">
+    <div class="masthead">TIMING <span class="red">·</span> WHY NOW</div>
+    <h2>Three things converged in 2026.</h2>
+    <span class="rule"></span>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="stack">
+        <span class="badge scarlet">01</span>
+        <h3>LLM cite accuracy crossed 85%.</h3>
+        <p>Round-tripping is now economical. The editor's job is QA, not full re-research.</p>
+      </div>
+      <div class="stack">
+        <span class="badge scarlet">02</span>
+        <h3>Buyers are post-Gartner.</h3>
+        <p>B2B operators trust the source, not the analyst's brand. Footnotes beat logos.</p>
+      </div>
+      <div class="stack">
+        <span class="badge scarlet">03</span>
+        <h3>The newsletter wave trained the format.</h3>
+        <p>Lenny, Stratechery, The Information taught a generation of buyers to read 1,500-word essays. That is our delivery format.</p>
+      </div>
+      <div class="stack">
+        <span class="badge scarlet">04</span>
+        <h3>The engine exists.</h3>
+        <p><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px;">company-mktresearch</span> is already in production at Prin7r — the customer-facing desk is the gap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Wedge -->
+  <section class="slide" id="s6" data-num="06">
+    <div class="masthead">WEDGE <span class="red">·</span> ONE SENTENCE</div>
+    <div style="display: flex; align-items: center; height: 100%;">
+      <blockquote>Every alternative either has the data and no argument, or the argument and no citations. Cited delivers both — on a clock — at productized price.</blockquote>
+    </div>
+  </section>
+
+  <!-- 07 Pricing -->
+  <section class="slide" id="s7" data-num="07">
+    <div class="masthead">PRICING <span class="red">·</span> UNIT ECONOMICS</div>
+    <h2>Four tiers. The moat is in tier 3 and 4.</h2>
+    <span class="rule"></span>
+    <table>
+      <thead><tr><th>Tier</th><th>Price</th><th>SLA</th><th>Target margin</th></tr></thead>
+      <tbody>
+        <tr><td>Standard</td><td>$499 / brief</td><td>72 hours</td><td>55%</td></tr>
+        <tr><td>Pro</td><td>$1,490 / brief</td><td>24 hours · senior editor</td><td>65%</td></tr>
+        <tr><td>Monitor</td><td>$2,490 / month</td><td>4 dossiers + monthly delta</td><td>70%</td></tr>
+        <tr><td>Team</td><td>$24,990 / year</td><td>Multi-seat · API · Slack</td><td>78%</td></tr>
+      </tbody>
+    </table>
+    <p class="meta" style="margin-top: 22px;">LTV/CAC target: 6.0× by Month 12. Monitor and Team are where the moat compounds — the customer's library is the switching cost.</p>
+  </section>
+
+  <!-- 08 Traction -->
+  <section class="slide" id="s8" data-num="08">
+    <div class="masthead">PLAN <span class="red">·</span> 90-DAY TRACTION</div>
+    <h2>What we ship by day 90.</h2>
+    <span class="rule"></span>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <div class="num-callout">60-80</div>
+        <p>Paid briefs delivered.</p>
+      </div>
+      <div>
+        <div class="num-callout">8-12</div>
+        <p>Monitor subscription conversions (10-15% of paid buyers).</p>
+      </div>
+      <div>
+        <div class="num-callout">$80-130k</div>
+        <p>Cumulative GMV.</p>
+      </div>
+      <div>
+        <div class="num-callout">1+</div>
+        <p>Tier-1 newsletter or podcast feature.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 Engine -->
+  <section class="slide" id="s9" data-num="09">
+    <div class="masthead">TEAM <span class="red">·</span> ENGINE</div>
+    <h2>One editor. One founder. One engine already running.</h2>
+    <span class="rule"></span>
+    <div class="row" style="margin-top: 22px;">
+      <div>
+        <span class="badge">EDITORIAL</span>
+        <h3 style="margin-top:8px;">Senior editor</h3>
+        <p>Owns the round-trip pass. Signs every dossier. Voice and structure consistency.</p>
+      </div>
+      <div>
+        <span class="badge">PRODUCT</span>
+        <h3 style="margin-top:8px;">Founder</h3>
+        <p>Operates the customer-facing desk and the editorial brand. Writes the journal.</p>
+      </div>
+      <div>
+        <span class="badge scarlet">ENGINE</span>
+        <h3 style="margin-top:8px;">company-mktresearch</h3>
+        <p>Pipelex graph. n8n. Claude / GPT / Gemini. Lives in an Incus container, in production.</p>
+      </div>
+    </div>
+    <p class="meta" style="margin-top: 24px;">The editorial layer is the moat. The LLMs are interchangeable.</p>
+  </section>
+
+  <!-- 10 Close -->
+  <section class="slide" id="s10" data-num="10">
+    <div class="masthead">CLOSE <span class="red">·</span> THE ASK</div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; height: 100%;">
+      <blockquote>Read a real dossier. Submit a brief.<br/>We'll have it back to you by Friday.</blockquote>
+      <span class="url-strip">market-research-on-demand.prin7r.com</span>
+    </div>
+  </section>
+
+  </main>
+</body>
+</html>

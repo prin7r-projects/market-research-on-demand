@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,900;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f4efe6;
+  --paper-2: #eae3d5;
+  --ink: #1a1b1e;
+  --scarlet: #b22a2a;
+  --graphite: #6b6660;
+  --ochre: #c99a2d;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body {
+  background-image: radial-gradient(rgba(26, 27, 30, 0.018) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+::selection {
+  background: var(--scarlet);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+a:hover {
+  border-bottom-color: currentColor;
+}
+
+a.scarlet:hover {
+  border-bottom-color: var(--scarlet);
+}
+
+.font-display {
+  font-family: "Source Serif 4", Georgia, serif;
+  letter-spacing: -0.012em;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.masthead-rule {
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.6;
+}
+
+.scarlet-rule {
+  display: block;
+  height: 2px;
+  background: var(--scarlet);
+}
+
+.label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+.footnote-num {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7em;
+  color: var(--scarlet);
+  vertical-align: super;
+  margin-left: 1px;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+@keyframes type-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: type-reveal 380ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+.reveal-2 {
+  animation: type-reveal 380ms 120ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+.reveal-3 {
+  animation: type-reveal 380ms 240ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+@keyframes pulse-ochre {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.pulse-dot {
+  animation: pulse-ochre 1.6s ease-in-out infinite;
+}
+
+.section-rule {
+  border-top: 1px solid rgba(26, 27, 30, 0.16);
+}
+
+.thin-rule {
+  border-top: 1px solid rgba(26, 27, 30, 0.12);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.btn:hover {
+  background: var(--scarlet);
+  border-color: var(--scarlet);
+  color: var(--paper);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.dossier-frame {
+  background: #faf6ee;
+  border: 1px solid rgba(26, 27, 30, 0.18);
+  position: relative;
+}
+
+.dossier-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(26, 27, 30, 0.06);
+  pointer-events: none;
+}
