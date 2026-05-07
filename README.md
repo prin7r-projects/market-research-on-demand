@@ -15,8 +15,17 @@ engine is the factory floor; this repo is the storefront.
 ## Links
 
 - Live: https://market-research-on-demand.prin7r.com
+- Design system: [`DESIGN.md`](DESIGN.md) — 15-section canonical style guide
 - Notion opportunity: https://www.notion.so/3543ceec2619819ab746e11df54c0880
 - Engine reference (private): `company-mktresearch` Incus container on server 144 (Pipelex graph + n8n + LLM ensemble)
+
+## Landing — captured from production
+
+![Cited landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
+
+![Cited landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
+
+Re-capture after any landing change with `node scripts/capture-landing-screenshots.mjs` (requires `pnpm dlx playwright install chromium` once).
 
 ## Repo structure
 

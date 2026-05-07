@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PricingCta, type PricingPlanId } from "./pricing-cta";
 
 export default function HomePage() {
   return (
@@ -297,8 +298,19 @@ function FourOhFour() {
 
 /* ---------------- Pricing ---------------- */
 
+type PricingTier = {
+  name: string;
+  price: string;
+  cadence: string;
+  sla: string;
+  bullets: string[];
+  cta: string;
+  highlight: boolean;
+  planId?: PricingPlanId;
+};
+
 function Pricing() {
-  const tiers = [
+  const tiers: PricingTier[] = [
     {
       name: "Standard",
       price: "$499",
@@ -310,8 +322,9 @@ function Pricing() {
         "MDX + PDF delivery",
         "1 round of revisions",
       ],
-      cta: "Submit a brief",
+      cta: "Pay $499 in stablecoin",
       highlight: false,
+      planId: "standard",
     },
     {
       name: "Pro",
@@ -324,8 +337,9 @@ function Pricing() {
         "MDX + PDF + sources.json",
         "2 rounds of revisions",
       ],
-      cta: "Submit a brief",
+      cta: "Pay $1,490 in stablecoin",
       highlight: true,
+      planId: "pro",
     },
     {
       name: "Monitor",
@@ -338,8 +352,9 @@ function Pricing() {
         "Library search + Slack delivery",
         "3 seats included",
       ],
-      cta: "Talk to the desk",
+      cta: "Subscribe in stablecoin",
       highlight: false,
+      planId: "monitor",
     },
     {
       name: "Team",
@@ -363,7 +378,9 @@ function Pricing() {
         <SectionHeader kicker="Section 05" eyebrow="What it costs" title="Four tiers. Productized prices. No proposal phase." />
         <p className="mt-6 max-w-2xl text-ink/80 text-[17px]">
           The first dossier is bought online without a sales call. Subscriptions
-          and team contracts get a 30-minute editorial intake.
+          and team contracts get a 30-minute editorial intake. Self-serve tiers
+          settle in stablecoin (USDT / USDC) via NOWPayments — fiat on-ramp on
+          the same hosted page where supported.
         </p>
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -401,14 +418,22 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="#brief"
-                className={
-                  "btn mt-7 justify-center " + (t.highlight ? "" : "btn-ghost")
-                }
-              >
-                {t.cta}
-              </Link>
+              {t.planId ? (
+                <PricingCta
+                  plan={t.planId}
+                  label={t.cta}
+                  className={
+                    "btn justify-center " + (t.highlight ? "" : "btn-ghost")
+                  }
+                />
+              ) : (
+                <Link
+                  href="#brief"
+                  className="btn btn-ghost mt-7 justify-center"
+                >
+                  {t.cta}
+                </Link>
+              )}
             </div>
           ))}
         </div>
@@ -416,7 +441,8 @@ function Pricing() {
         <p className="mt-10 text-graphite italic max-w-2xl text-[14px]">
           Anti-feature notice: we do not write SEC, FDA, or other regulatory-grade
           claims. We do not revise toward a pre-specified conclusion. We will
-          push back on scope before accepting your brief.
+          push back on scope before accepting your brief. Card customers and
+          wire/ACH go through the desk — email <a className="scarlet" href="mailto:desk@prin7r.com">desk@prin7r.com</a>.
         </p>
       </div>
     </section>
