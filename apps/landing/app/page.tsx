@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PricingCta, type PricingPlanId } from "./pricing-cta";
 
-/* [CITED_REDESIGN_R2] 2026-05-08
+/* [ONEWEEKBRIEF_REDESIGN_R2] 2026-05-08
  * Reference: design-references/anthropic.md ("Research journal printed on warm stone").
  * Hard override per user: NO BEIGE. Canvas is milky white (#FAFAF8).
  * Lifted from reference:
@@ -13,8 +13,8 @@ import { PricingCta, type PricingPlanId } from "./pricing-cta";
  *   - asymmetric primary CTA radius (flat top, rounded bottom)
  *   - dark editorial feature card on #141413, contained (not full-bleed)
  *   - release-card grid with mono metadata labels (DATE, CATEGORY)
- * Kept from Cited brand:
- *   - "Cited" wordmark with scarlet underbar
+ * Kept from OneWeekBrief brand:
+ *   - "OneWeekBrief" wordmark with scarlet underbar
  *   - Scarlet accent for footnote numerals + section under-rules
  *   - Pulse-dot ochre kicker
  *   - Editorial voice (Vol. 01 — A Prin7r Edition — 2026)
@@ -59,10 +59,10 @@ function Masthead() {
 
 function Logo() {
   return (
-    <span className="inline-flex flex-col items-start" aria-label="Cited">
-      <span className="font-display font-black text-[34px] leading-none tracking-tight">C</span>
+    <span className="inline-flex flex-col items-start" aria-label="OneWeekBrief">
+      <span className="font-display font-black text-[34px] leading-none tracking-tight">O</span>
       <span className="block w-[58px] h-[2px] bg-scarlet mt-[2px]" />
-      <span className="font-mono text-[8.5px] tracking-[3px] text-graphite uppercase mt-[2px]">cited.</span>
+      <span className="font-mono text-[8.5px] tracking-[3px] text-graphite uppercase mt-[2px]">oneweekbrief.</span>
     </span>
   );
 }
@@ -285,7 +285,7 @@ function HowItWorks() {
         <SectionHeader
           kicker="Section 03"
           eyebrow="The desk"
-          title="Brief in. Cited dossier out."
+          title="Brief in. OneWeekBrief dossier out."
           emphHead="On a clock"
         />
         <div className="mt-[60px] grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
@@ -594,7 +594,7 @@ function Cta() {
           </p>
           <div className="mt-12 flex flex-wrap gap-3">
             <a
-              href="mailto:desk@prin7r.com?subject=New%20brief%20for%20Cited&body=One-paragraph%20brief%3A%0A%0A%0AContext%20%2F%20deadline%3A%0A%0ABudget%20tier%20(Standard%20%24499%20%2F%20Pro%20%241%2C490%20%2F%20Monitor%20%242%2C490%20mo)%3A%0A"
+              href="mailto:desk@prin7r.com?subject=New%20brief%20for%20OneWeekBrief&body=One-paragraph%20brief%3A%0A%0A%0AContext%20%2F%20deadline%3A%0A%0ABudget%20tier%20(Standard%20%24499%20%2F%20Pro%20%241%2C490%20%2F%20Monitor%20%242%2C490%20mo)%3A%0A"
               className="btn btn-primary"
             >
               Email a brief to the desk <Arrow />
@@ -621,7 +621,7 @@ function Footer() {
         <div>
           <Logo />
           <p className="mt-7 text-ink-light text-[13px] leading-[1.65] max-w-xs">
-            Cited is operated by Prin7r. Editorial team across NYC, Berlin, and
+            OneWeekBrief is operated by Prin7r. Editorial team across NYC, Berlin, and
             Tbilisi. Built on the company-mktresearch engine.
           </p>
         </div>
@@ -647,7 +647,7 @@ function Footer() {
             </li>
           </ul>
           <p className="font-mono text-[10px] tracking-[0.2em] text-graphite uppercase mt-8">
-            © 2026 Prin7r — cited@prin7r.com
+            © 2026 Prin7r — oneweekbrief@prin7r.com
           </p>
         </div>
       </div>

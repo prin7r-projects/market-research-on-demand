@@ -1,5 +1,5 @@
 /**
- * [CITED_NOWPAYMENTS] Server-side helpers for the NOWPayments hosted invoice.
+ * [ONEWEEKBRIEF_NOWPAYMENTS] Server-side helpers for the NOWPayments hosted invoice.
  *
  * - `PLANS` maps the four pricing tiers visible on the landing to their
  *   USD price + checkout copy. Self-serve tiers (Standard/Pro/Monitor) flow
@@ -27,19 +27,19 @@ export type Plan = {
 export const PLANS: Record<PlanId, Plan> = {
   standard: {
     id: "standard",
-    name: "Cited — Standard brief",
+    name: "OneWeekBrief — Standard brief",
     priceUsd: 499,
     description: "Single market-research dossier, 72-hour SLA, 8-15 round-tripped sources, junior editor pass."
   },
   pro: {
     id: "pro",
-    name: "Cited — Pro brief",
+    name: "OneWeekBrief — Pro brief",
     priceUsd: 1490,
     description: "Single market-research dossier, 24-hour SLA, 15-25 round-tripped sources, senior editor signature."
   },
   monitor: {
     id: "monitor",
-    name: "Cited — Monitor (monthly)",
+    name: "OneWeekBrief — Monitor (monthly)",
     priceUsd: 2490,
     description: "Four Pro dossiers per month with monthly delta-rerun, library search, and Slack delivery. Three seats."
   }
@@ -72,7 +72,7 @@ export async function createNowpaymentsInvoice(input: CreateInvoiceInput): Promi
   const sandbox = (optionalEnv("NOWPAYMENTS_SANDBOX") ?? "false").toLowerCase() === "true";
   const apiBase = sandbox ? "https://api-sandbox.nowpayments.io" : "https://api.nowpayments.io";
 
-  const orderId = `cited_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const orderId = `oneweekbrief_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
   const body = {
     price_amount: input.plan.priceUsd,

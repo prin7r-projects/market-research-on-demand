@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-/* [CITED_REDESIGN_R2] 2026-05-08 — tokens lifted from
+/* [ONEWEEKBRIEF_REDESIGN_R2] 2026-05-08 — tokens lifted from
  * design-references/anthropic.md, transposed to a milky-white canvas
  * (no beige per user override). */
 
@@ -26,7 +26,7 @@ const config: Config = {
         cloud: "#B0AEA5",
         "cloud-light": "#D1CFC5",
 
-        // Cited brand accent (scarlet) — kept; Anthropic clay/ember held in reserve.
+        // OneWeekBrief brand accent (scarlet) — kept; Anthropic clay/ember held in reserve.
         scarlet: "#B22A2A",
         ember: "#C6613F",
         ochre: "#C99A2D",

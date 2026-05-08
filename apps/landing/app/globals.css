@@ -1,4 +1,4 @@
-/* [CITED_REDESIGN_R2] 2026-05-08 — Wave 2 round-2 redesign.
+/* [ONEWEEKBRIEF_REDESIGN_R2] 2026-05-08 — Wave 2 round-2 redesign.
  * Reference: design-references/anthropic.md ("Research journal printed on warm stone").
  * Hard override per user: NO BEIGE / NO WARM-PAPER. Canvas swapped to milky white.
  * Lifted from reference: type scale (61px/91px/24px/18px/15px), display tracking -1.22px,
@@ -28,7 +28,7 @@
   --cloud: #b0aea5;          /* cloud-medium — disabled / muted chrome */
   --cloud-light: #d1cfc5;    /* cloud-light — dividers */
 
-  /* ---------------- Accent (Cited brand: scarlet kept; ochre held in reserve) ---------------- */
+  /* ---------------- Accent (OneWeekBrief brand: scarlet kept; ochre held in reserve) ---------------- */
   --scarlet: #b22a2a;
   --ember: #c6613f;
   --ochre: #c99a2d;
@@ -154,7 +154,7 @@ a:hover {
 /* ---------------- Word-level underline emphasis (the BRAND SIGNATURE) ----------------
  * Lifted from Anthropic ref §"Typographic Emphasis System" — selected
  * keywords inside display headlines wear a thick underline; never color, never weight shift.
- * For Cited's brand, we preserve the editorial footnote feel by using a 2-3px ink underline
+ * For OneWeekBrief's brand, we preserve the editorial footnote feel by using a 2-3px ink underline
  * with a 2px gap (offset) — reads like an editor's hand, not a markdown link. */
 .emph {
   text-decoration: underline;

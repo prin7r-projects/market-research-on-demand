@@ -1,6 +1,6 @@
-# DESIGN.md — Cited
+# DESIGN.md — OneWeekBrief
 
-> Canonical design + style guide for `market-research-on-demand` (brand: **Cited**).
+> Canonical design + style guide for `market-research-on-demand` (brand: **OneWeekBrief**).
 > Owned by Chief of Design. Kept in sync with `apps/landing/` — any landing-page change updates this file in the same commit.
 
 The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-identity.md). This document is the implementation-facing translation of that identity into tokens, components, layout rules, and verification artifacts.
@@ -9,7 +9,7 @@ The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-
 
 ## 1. Product and audience
 
-**Product** — Cited is a research-as-a-service desk. A founder, operator, or sector analyst submits a one-paragraph brief; a senior editor and an AI research engine return a fully-footnoted market research dossier in 24-72 hours. Every claim is round-tripped to a live source URL. The product is the artifact (the dossier), not the software.
+**Product** — OneWeekBrief is a research-as-a-service desk. A founder, operator, or sector analyst submits a one-paragraph brief; a senior editor and an AI research engine return a fully-footnoted market research dossier in 24-72 hours. Every claim is round-tripped to a live source URL. The product is the artifact (the dossier), not the software.
 
 **Audience** —
 - **Renee, the Founder-Strategist**: Series A/B founder, 35-45, ex-strategy/PM. Wants defensible signal before her board meeting (T-minus 14 days). Refuses to ship an "intern's deck I can't cite."
@@ -54,7 +54,7 @@ Single source of truth: `apps/landing/tailwind.config.ts` and `apps/landing/app/
 | Ink (light) | `ink-light` | `#5E5D59` | `--ink-light` | `#5e5d59` (Slate Light) | Tertiary text, captions |
 | Muted | `graphite` | `#87867F` | `--graphite` | `#87867f` (Cloud Dark) | Mono labels, secondary text |
 | Cloud | `cloud` | `#B0AEA5` | `--cloud` | `#b0aea5` (Cloud Medium) | Disabled/muted UI chrome |
-| Accent (primary) | `scarlet` | `#B22A2A` | `--scarlet` | `#d97757` (Clay) — Cited brand override | Footnote numerals, section under-rules, scarlet emph |
+| Accent (primary) | `scarlet` | `#B22A2A` | `--scarlet` | `#d97757` (Clay) — OneWeekBrief brand override | Footnote numerals, section under-rules, scarlet emph |
 | Accent (highlight) | `ochre` | `#C99A2D` | `--ochre` | n/a | Pulse dot, ochre stat block on 404 frame |
 
 **Contrast.** ink-on-canvas 16.4:1; ink-light-on-canvas 7.1:1; graphite-on-canvas 4.6:1; scarlet-on-canvas 5.4:1; canvas-on-ink 16.4:1; ochre-on-ink 6.7:1. All pairs meet WCAG AA.
@@ -112,7 +112,7 @@ All components are local (in `apps/landing/app/page.tsx`) until shadcn primitive
 
 | Component | Where defined | Notes |
 |-----------|---------------|-------|
-| `Logo` | `page.tsx` Masthead | Source Serif Black `C`, 1.5-2px scarlet underbar 1.4em past the letterform, JetBrains Mono `cited.` wordmark with trailing period (the brand signature). |
+| `Logo` | `page.tsx` Masthead | Source Serif Black `O`, 1.5-2px scarlet underbar 1.4em past the letterform, JetBrains Mono `oneweekbrief.` wordmark with trailing period (the brand signature). |
 | `.btn` | `globals.css` | Square-edged, ink fill, 14×22px padding. Hover swaps to scarlet fill. Focus inherits browser ring (kept visible). |
 | `.btn-ghost` | `globals.css` | Transparent background, ink border, paper text on ink hover. Used as the secondary CTA. |
 | `Stat` | `page.tsx` Hero | Display Black 40-48px number, mono label below, optional graphite italic sub. |
@@ -124,7 +124,7 @@ All components are local (in `apps/landing/app/page.tsx`) until shadcn primitive
 | `thin-rule` | `globals.css` | 1px hairline at `rgba(26,27,30,.12)`. Used for footnote separators and 404-frame inner divides. |
 | Pricing tier card | `page.tsx` Pricing | 1px ink border (paper inside), highlighted tier swaps to scarlet border + scarlet ring. Header block, 44px Black price, mono SLA, bullet list, full-width CTA at bottom. |
 
-**Accessibility for each.** Buttons inherit native focus ring; the masthead `Logo` carries `aria-label="Cited"`; SVG icons (`Arrow`) use `aria-hidden`; nav anchors are real `<a>` elements via `next/link`. Keyboard tab order: hero CTA → secondary CTA → nav → pricing CTAs → footer links.
+**Accessibility for each.** Buttons inherit native focus ring; the masthead `Logo` carries `aria-label="OneWeekBrief"`; SVG icons (`Arrow`) use `aria-hidden`; nav anchors are real `<a>` elements via `next/link`. Keyboard tab order: hero CTA → secondary CTA → nav → pricing CTAs → footer links.
 
 ## 9. Landing page structure
 
@@ -144,7 +144,7 @@ All components are local (in `apps/landing/app/page.tsx`) until shadcn primitive
 
 ## 10. Imagery and generated asset rules
 
-The landing intentionally ships **no raster imagery** — the visual identity is carried entirely by typography, hairlines, the scarlet rule, and the ochre pulse dot. `apps/landing/public/` contains no images other than `app/icon.svg` (the Cited C-mark with the scarlet underbar).
+The landing intentionally ships **no raster imagery** — the visual identity is carried entirely by typography, hairlines, the scarlet rule, and the ochre pulse dot. `apps/landing/public/` contains no images other than `app/icon.svg` (the OneWeekBrief O-mark with the scarlet underbar).
 
 **If we add imagery in a later pass.**
 - Generated via `prin7r-generate-image` (GPT Image 2 backed) when an OpenAI Image-API key is available. Save under `apps/landing/public/generated/<filename>.png` with a sibling `<filename>.prompt.txt` recording the prompt + model + date.
@@ -169,7 +169,7 @@ The landing intentionally ships **no raster imagery** — the visual identity is
 - **WCAG target** — AA. AAA where the type scale already gets us there (display ink-on-paper).
 - **Color contrast** — verified for every foreground/background pair in section 4.
 - **Keyboard** — Tab cycles cleanly through hero CTA → secondary CTA → nav → pricing CTAs → footer links. Focus is visible (browser default ring is intact).
-- **Alt text** — `Logo` has `aria-label="Cited"`; the `Arrow` glyph is `aria-hidden`. There are no decorative `<img>` elements; if added, decorative use `alt=""`, content uses descriptive alt.
+- **Alt text** — `Logo` has `aria-label="OneWeekBrief"`; the `Arrow` glyph is `aria-hidden`. There are no decorative `<img>` elements; if added, decorative use `alt=""`, content uses descriptive alt.
 - **Semantics** — `header > nav`, `main`, `section[id]` for in-page anchors, `article` around the dossier excerpt, `footer`. Real `<a>` (via `next/link`), real `<h1>` / `<h2>` / `<h3>` hierarchy with no skipped levels.
 - **Real copy** — no `Lorem ipsum`; no `TODO` strings; every quoted figure is from a real audit (the 11.4% / 6-of-10 numbers are sourced from our own engine's audit run).
 - **Production checks** — `curl -sI https://market-research-on-demand.prin7r.com` returns HTTP/2 200 with valid Let's Encrypt R12 cert; static HTML contains the hero copy (`Decision-grade` ×12, `Submit a brief` ×10) without client-side hydration.
@@ -185,9 +185,9 @@ Captured from the live deploy at `https://market-research-on-demand.prin7r.com` 
 | Landing — desktop | 1440 × 900 (`fullPage`) | [`docs/screenshots/landing-desktop.png`](docs/screenshots/landing-desktop.png) |
 | Landing — mobile | 390 × 844 (`fullPage`) | [`docs/screenshots/landing-mobile.png`](docs/screenshots/landing-mobile.png) |
 
-![Cited landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
+![OneWeekBrief landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
 
-![Cited landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
+![OneWeekBrief landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
 
 Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, `device_scale_factor: 2`, `wait_until: networkidle`). Re-run after any landing-affecting change.
 
@@ -206,6 +206,7 @@ Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, 
 
 | Date | Change | Reviewer |
 |------|--------|----------|
+| 2026-05-08 | high-priority rebrand — Cited → OneWeekBrief (FAIL on AI-citation/AEO category SERP eclipse). Logo monogram C → O; mono wordmark `cited.` → `oneweekbrief.`; container_name + package name + debug tags + plan names + order-id prefix updated; verb-usages of "cited" preserved (e.g., "Fully cited", "fully-footnoted"). | Wave 2 recovery Agent R |
 | 2026-05-08 | **Round-2 redesign — Anthropic reference applied.** Lifted from `/Users/keer/projects/prin7r/design-references/anthropic.md`: type scale (12 / 15 / 18 / 20 / 24 / 61 / 91 px), display tracking `-1.22px`, leading 1.1 at display, body grotesque swap **Inter → Geist** (Inter banned), display serif unchanged (Source Serif 4 stays as Anthropic Serif substitute), word-level underline emphasis on hero & section headlines (`.emph` / `.emph-scarlet` — the new brand signature), 0px button radius with asymmetric 0/0/8/8 on primary CTA (Anthropic ref signature), 8px card radius, 24px feature-card radius, dark editorial feature card on `#141413` for the 404 frame, hairlines via `color-mix()`, ink scale broadened (ink / ink-medium / ink-light / graphite / cloud). **Hard override per product owner: canvas swapped warm-paper beige → milky `#FAFAF8`** (no beige rule). DESIGN.md §1, §4, §5 rewritten; screenshots recaptured. | Wave 2 redesign agent (round 2) |
 | 2026-05-08 | Wave 2 polish pass — DESIGN.md created with all 15 sections; screenshots captured (`landing-desktop.png`, `landing-mobile.png`); NOWPayments crypto checkout integration added (`/api/checkout/nowpayments` route + Pricing CTAs + IPN webhook); `.env.example` extended with `NOWPAYMENTS_*` keys. | Chief of Design |
 | 2026-05-07 | Initial Wave 2 batch 1 build — `apps/landing` shipped (8 sections); `apps/app` Wasp scaffold deferred. Brand identity locked in `docs/01-brand-identity.md`. | Wave 2 batch agent |

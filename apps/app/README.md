@@ -1,4 +1,4 @@
-# apps/app — Cited dashboard (deferred)
+# apps/app — OneWeekBrief dashboard (deferred)
 
 This folder is a placeholder for the customer-facing dashboard, which will be
 forked from [`wasp-lang/open-saas`](https://github.com/wasp-lang/open-saas) in

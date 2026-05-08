@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.landing
-    image: cited-landing:latest
-    container_name: cited-landing
+    image: oneweekbrief-landing:latest
+    container_name: oneweekbrief-landing
     restart: unless-stopped
     expose:
       - "3000"

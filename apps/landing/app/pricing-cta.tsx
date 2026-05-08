@@ -1,6 +1,6 @@
 "use client";
 /**
- * [CITED_PRICING_CTA] Client component that turns the three self-serve
+ * [ONEWEEKBRIEF_PRICING_CTA] Client component that turns the three self-serve
  * pricing tiers into a NOWPayments hosted-invoice CTA.
  *
  * On click → `POST /api/checkout/nowpayments` → redirect to the returned
@@ -21,7 +21,7 @@ type Props = {
 };
 
 const FALLBACK_MAILTO =
-  "mailto:desk@prin7r.com?subject=New%20brief%20for%20Cited&body=One-paragraph%20brief%3A%0A%0A%0AContext%20%2F%20deadline%3A%0A%0ABudget%20tier%3A%0A";
+  "mailto:desk@prin7r.com?subject=New%20brief%20for%20OneWeekBrief&body=One-paragraph%20brief%3A%0A%0A%0AContext%20%2F%20deadline%3A%0A%0ABudget%20tier%3A%0A";
 
 export function PricingCta({ plan, label, className }: Props) {
   const [busy, setBusy] = useState(false);

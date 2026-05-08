@@ -1,5 +1,5 @@
 /**
- * [CITED_NOWPAYMENTS_CHECKOUT] POST /api/checkout/nowpayments
+ * [ONEWEEKBRIEF_NOWPAYMENTS_CHECKOUT] POST /api/checkout/nowpayments
  *
  * Body:    { plan: "standard" | "pro" | "monitor", brief?: string }
  * Returns: { invoice_url: string, invoice_id: string, plan: string, mode: "live" }

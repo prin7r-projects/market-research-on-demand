@@ -1,4 +1,4 @@
-# Cited — Market Research on Demand
+# OneWeekBrief — Market Research on Demand
 
 > Decision-grade market research. Fully cited. In 24-72 hours.
 
@@ -21,9 +21,9 @@ engine is the factory floor; this repo is the storefront.
 
 ## Landing — captured from production
 
-![Cited landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
+![OneWeekBrief landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
 
-![Cited landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
+![OneWeekBrief landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
 
 Re-capture after any landing change with `node scripts/capture-landing-screenshots.mjs` (requires `pnpm dlx playwright install chromium` once).
 
