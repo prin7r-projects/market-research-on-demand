@@ -5,11 +5,11 @@
 - **Essence**: Conviction.
 - **Personality**: Editorial. Empirical. Decisive.
 - **Values**: Source-truth · Time-to-clarity · Operator-first.
-- **Attributes**: Cited. Concise. Original. Productized. Auditable.
+- **Attributes**: OneWeekBrief. Concise. Original. Productized. Auditable.
 
 ## Positioning Statement
 
-For founders, operators, and strategy teams who need defensible, decision-grade signal in days rather than months, **Cited** is a research-as-a-service desk that delivers a fully-sourced market research dossier in 24-72 hours. Unlike consulting firms that slow-roll the same insight for six figures, or freelance analysts who lack a pipeline, Cited combines a senior editorial layer with an AI research engine — every claim is footnoted, every source is named, and every brief is delivered on a clock.
+For founders, operators, and strategy teams who need defensible, decision-grade signal in days rather than months, **OneWeekBrief** is a research-as-a-service desk that delivers a fully-sourced market research dossier in 24-72 hours. Unlike consulting firms that slow-roll the same insight for six figures, or freelance analysts who lack a pipeline, OneWeekBrief combines a senior editorial layer with an AI research engine — every claim is footnoted, every source is named, and every brief is delivered on a clock.
 
 ## Audience Personas
 
@@ -64,7 +64,7 @@ Pairing rationale: serif display + neutral sans body is the standard editorial p
 A single capital "C" in Source Serif Black with a 1.5px scarlet underbar that extends 1.4em past the letterform. The underbar reads simultaneously as a footnote rule, a citation underline, and a publication masthead break. Under the C, in JetBrains Mono 9px, the wordmark `cited.` (lowercase, with trailing period). The trailing period is the brand signature — citations end with a period.
 
 ```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" aria-label="Cited">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" aria-label="OneWeekBrief">
   <text x="0" y="78" font-family="Source Serif 4, Georgia, serif" font-weight="900" font-size="96" fill="#1A1B1E">C</text>
   <line x1="0" y1="86" x2="170" y2="86" stroke="#B22A2A" stroke-width="2.5"/>
   <text x="0" y="100" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6660" letter-spacing="2">cited.</text>

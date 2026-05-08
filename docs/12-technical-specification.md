@@ -1,6 +1,6 @@
 # 12 · Technical specification
 
-> Cited = landing/intake/billing/delivery shell + research engine on server 144. This doc is the
+> OneWeekBrief = landing/intake/billing/delivery shell + research engine on server 144. This doc is the
 > implementer's contract for the customer-facing surface; engine internals live in
 > `prin7r/auto-business-claude` and are referenced, not duplicated.
 

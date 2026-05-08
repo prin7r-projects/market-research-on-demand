@@ -2,7 +2,7 @@
 
 ## System overview
 
-Cited is a research-as-a-service product. The customer-facing surface (this repo) is the *intake + delivery + billing* shell. The research engine itself runs as a separate Incus container (`company-mktresearch` on server 144) — that engine is the "factory floor" and is referenced but not duplicated here.
+OneWeekBrief is a research-as-a-service product. The customer-facing surface (this repo) is the *intake + delivery + billing* shell. The research engine itself runs as a separate Incus container (`company-mktresearch` on server 144) — that engine is the "factory floor" and is referenced but not duplicated here.
 
 ```mermaid
 flowchart LR

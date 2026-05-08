@@ -13,7 +13,7 @@
 
 ## Phase 0 — Wave 2 landing + checkout (DONE)
 
-- ✅ Public landing (Cited brand), three tier cards, NOWPayments invoice flow, branded 503,
+- ✅ Public landing (OneWeekBrief brand), three tier cards, NOWPayments invoice flow, branded 503,
   redesign to anthropic-ref milky canvas landed, screenshots in `/docs/screenshots/`.
 
 ## Phase 1 — Brief intake form + Postgres schema

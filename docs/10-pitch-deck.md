@@ -22,7 +22,7 @@ Prin7r · 2026
 | Internal analyst | Capacity-bound, politically biased |
 | ChatGPT / Perplexity | Hallucinated sources, no editor |
 
-## Slide 04 — What Cited is
+## Slide 04 — What OneWeekBrief is
 - Productized research desk.
 - Customer submits a one-paragraph brief.
 - Engine drafts a footnoted dossier (Pipelex graph + LLMs).
@@ -35,7 +35,7 @@ Prin7r · 2026
 - The "long-form newsletter" wave (Lenny, Stratechery, The Information) trained a generation of buyers to read 1,500-word essays — that is our delivery format.
 
 ## Slide 06 — The wedge in one sentence
-> Every alternative either has the data and no argument, or the argument and no citations. Cited delivers both, on a clock, at productized price.
+> Every alternative either has the data and no argument, or the argument and no citations. OneWeekBrief delivers both, on a clock, at productized price.
 
 ## Slide 07 — Pricing and unit economics
 | Tier | Price | SLA | Margin (target) |

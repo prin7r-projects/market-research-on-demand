@@ -2,7 +2,7 @@
 
 ## Motion: PLG with a curated sales overlay
 
-Cited is **product-led at the bottom of the pricing**, **sales-led at the top**. The first dossier is bought online without a human. Subscriptions and team contracts above $25k ARR have a 30-min "editorial intake" call.
+OneWeekBrief is **product-led at the bottom of the pricing**, **sales-led at the top**. The first dossier is bought online without a human. Subscriptions and team contracts above $25k ARR have a 30-min "editorial intake" call.
 
 | Tier | Buying motion | Sales touch | Cycle |
 |------|---------------|-------------|-------|
@@ -41,7 +41,7 @@ Anti-feature               No legal claims   Same             Same              
 | "Why not Forrester / Gartner?" | "They sell *their* report. We write *yours*. If you want the median report on a category, buy them. If you want a brief on your specific question, buy us." |
 | "What if I disagree with the conclusion?" | "Every dossier shows its working. You can read the source excerpts in the footnote pane. We will revise if you find a flaw — but we will not revise to a pre-specified conclusion." |
 | "Can I see a sample first?" | Yes — `/sample` is a complete real dossier (anonymized), not a teaser. |
-| "How do I know you'll be around in 12 months?" | "Cited is built on a productized engine that has run for [N] months. Our worst case is we slow turnaround, not that you lose access to your library — you get an MDX + sources export every delivery." |
+| "How do I know you'll be around in 12 months?" | "OneWeekBrief is built on a productized engine that has run for [N] months. Our worst case is we slow turnaround, not that you lose access to your library — you get an MDX + sources export every delivery." |
 | "Is this a software product or a service?" | "Service. The software is how we hit the SLA. You're paying for the dossier, not the software." |
 
 ## Win/loss tracking

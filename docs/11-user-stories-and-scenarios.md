@@ -1,6 +1,6 @@
 # 11 · User stories and scenarios
 
-> Cited is research-as-a-service. The customer-facing surface (this repo) drives intake, billing,
+> OneWeekBrief is research-as-a-service. The customer-facing surface (this repo) drives intake, billing,
 > delivery, and monitoring; the engine itself runs in `company-mktresearch` on server 144.
 
 ## 1. Personas summary
@@ -9,13 +9,13 @@
   board meeting. Will not pay $80k to McKinsey. Pays in USDC. — see `05-audience-profile.md` §Renee.
 - **Marcus, 28–35, growth-stage VC associate.** Needs cited landscape pulls fast; pays for monthly
   monitoring on three portfolio sectors. — see `05-audience-profile.md` §Marcus.
-- **Cited senior editor (operator).** Reviews every dossier before delivery. Owns the editorial
+- **OneWeekBrief senior editor (operator).** Reviews every dossier before delivery. Owns the editorial
   guarantee that every claim is sourced.
 
 ## 2. Primary user stories (12)
 
 1. **As Renee**, I want to submit a one-paragraph brief on a landing page, so that I don't fill in
-   a 14-field form before knowing if Cited is right.
+   a 14-field form before knowing if OneWeekBrief is right.
 2. **As Renee**, I want a fixed 24/48/72-hour delivery clock visible on each tier, so that I know
    what I'm buying.
 3. **As Renee**, I want to pay in USDC without committing to a multi-month subscription, so that
@@ -30,11 +30,11 @@
    any device without copying credentials.
 8. **As Renee**, I want a refund window (within the SLA, before delivery), so that committing
    $499–$1,490 is reversible if I change scope.
-9. **As Cited senior editor**, I want a queue of briefs sorted by SLA-deadline-remaining, so that
+9. **As OneWeekBrief senior editor**, I want a queue of briefs sorted by SLA-deadline-remaining, so that
    I can intervene on tightest first.
-10. **As Cited senior editor**, I want every cite to be link-checked + entity-checked
+10. **As OneWeekBrief senior editor**, I want every cite to be link-checked + entity-checked
     automatically before I review, so that my pass is editorial, not janitorial.
-11. **As Cited senior editor**, I want a "request rewrite" tool that re-runs a section with
+11. **As OneWeekBrief senior editor**, I want a "request rewrite" tool that re-runs a section with
     operator-supplied additional context (a doc, a quote), so that I'm not the bottleneck.
 12. **As Marcus**, I want a /research-monitor cron that re-runs my saved briefs and emails me a
     delta-only summary, so that I learn what changed without re-reading the full dossier.
@@ -43,7 +43,7 @@
 
 ### Scenario A — Renee submits a brief, dossier delivered in 71h
 
-1. **Trigger.** Renee reads a Lenny's newsletter mention of Cited.
+1. **Trigger.** Renee reads a Lenny's newsletter mention of OneWeekBrief.
 2. **Steps.**
    1. Lands on `/`. Reads the three tiers (one-off $499 / pro $1,490 / monitor $2,490/mo).
    2. Picks Pro ($1,490). Submits brief: "B2B fitness-tech category map, US + EU, 2022–2025, focused

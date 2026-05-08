@@ -25,7 +25,7 @@ The buyers we want do not respond to cold outbound or paid display. They respond
 
 - **Lenny's Newsletter slot**: *"Stop renting consultants. Start citing."* — landing matches.
 - **Founder-led essay launch**: *"Why every B2B deck has a 404 problem"* — opens with three real broken citations from VC decks; sells the editorial layer.
-- **Operator Slack first-message**: *"I had to validate a pricing change before the next board meeting. Used Cited. Here's the dossier they shipped in 31 hours: [link]"* — never said by us; given to seed customers as a template.
+- **Operator Slack first-message**: *"I had to validate a pricing change before the next board meeting. Used OneWeekBrief. Here's the dossier they shipped in 31 hours: [link]"* — never said by us; given to seed customers as a template.
 
 ## Funnel KPIs (90-day target)
 

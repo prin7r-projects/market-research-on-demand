@@ -3,7 +3,7 @@
 ## Positioning hierarchy
 
 ```
-Category          Cited is a research-as-a-service desk.
+Category          OneWeekBrief is a research-as-a-service desk.
 Frame             Not a tool. Not a consultancy. A productized editorial desk with an AI engine in the back room.
 Wedge             Every claim cited. Every source named. Delivered on a clock.
 One-liner         Decision-grade market research. Fully cited. In 24-72 hours.
@@ -32,7 +32,7 @@ Promise           Footnotes that don't 404.
 
 | Pillar | Cadence | Format | Owner |
 |--------|---------|--------|-------|
-| **Cited Field Notes** — annotated excerpts from anonymized real dossiers | Weekly, 800-1,400 words | MDX essay published to `/journal` and Substack | Lead editor |
+| **OneWeekBrief Field Notes** — annotated excerpts from anonymized real dossiers | Weekly, 800-1,400 words | MDX essay published to `/journal` and Substack | Lead editor |
 | **The 404 Series** — case studies of broken citations in public decks/reports, with replacements | Bi-weekly | MDX + scrollable annotated PDF embeds | Founder |
 | **Inside a Brief** — 5-minute videos showing a brief's lifecycle, end to end | Monthly | YouTube + LinkedIn cross-post | Founder + editor |
 | **Methods Disclosed** — opinionated stances on cite-rigor, source ladders, the role of LLMs in research | Quarterly | Long-form essays, occasionally syndicated to Stratechery / Lenny | Founder |
@@ -82,7 +82,7 @@ We won't make legal or regulatory claims.
 We won't sell your brief or your library to anyone, ever.
 
 FOOTER
-Cited is operated by Prin7r. Editorial team based across NYC, Berlin, Tbilisi.
+OneWeekBrief is operated by Prin7r. Editorial team based across NYC, Berlin, Tbilisi.
 ```
 
 ## Launch sequence (T-0 = batch 1 deploy)

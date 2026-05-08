@@ -35,7 +35,7 @@ Three journeys mapped: discovery, first value, recurring use.
 | 1 | Dashboard | Team owner adds two analyst seats. | |
 | 2 | Slack integration | New dossiers and deltas post into a private team channel with the headline + 3-bullet TL;DR. | |
 | 3 | `/dossiers` | Search across the team's accumulated dossiers — every footnote is searchable. | The library is the team's institutional memory. |
-| 4 | API | Power user pulls `cited.mdx` + `sources.json` into Notion via Cited's MCP server. | Power-user lock-in. |
+| 4 | API | Power user pulls `cited.mdx` + `sources.json` into Notion via OneWeekBrief's MCP server. | Power-user lock-in. |
 | 5 | Renewal | At month 12, the team has 48 dossiers and 1,800+ unique cited sources. Switching cost is the library. | |
 
 **Retention = library size > 24 dossiers.**
