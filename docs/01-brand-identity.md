@@ -5,7 +5,7 @@
 - **Essence**: Conviction.
 - **Personality**: Editorial. Empirical. Decisive.
 - **Values**: Source-truth · Time-to-clarity · Operator-first.
-- **Attributes**: OneWeekBrief. Concise. Original. Productized. Auditable.
+- **Attributes**: Footnoted. Concise. Original. Productized. Auditable.
 
 ## Positioning Statement
 
