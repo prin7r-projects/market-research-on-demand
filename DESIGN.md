@@ -18,6 +18,8 @@ The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-
 
 The landing is written for these two. Voice mirrors the dossier itself: editorial, empirical, decisive — Stratechery / The Information register, not SaaS-dashboard register.
 
+**Design ancestry (round-2 redesign, 2026-05-08).** The current visual system is a transposition of Anthropic's "Research journal printed on warm stone" reference (`/Users/keer/projects/prin7r/design-references/anthropic.md`) onto a milky-white canvas. The reference's warm-stone (#faf9f5) is replaced with milky #FAFAF8 per product owner override (no beige). The reference's typographic emphasis system — a thick underline on selected headline keywords, in place of color or weight — is adopted as the new brand signature, and reads as an editor's hand-applied highlight on a printed broadsheet.
+
 ## 2. Visual positioning
 
 A productized research desk dressed as an editorial broadsheet.
@@ -39,34 +41,54 @@ A productized research desk dressed as an editorial broadsheet.
 
 ## 4. Color tokens
 
-Single source of truth: `apps/landing/tailwind.config.ts` and `apps/landing/app/globals.css`. Five-color editorial palette; intentionally not a SaaS dashboard palette.
+Single source of truth: `apps/landing/tailwind.config.ts` and `apps/landing/app/globals.css`. Editorial palette transposed from Anthropic's slate/ivory range onto milky white (no beige).
 
-| Role | Token | Hex | CSS var | Used for |
-|------|-------|-----|---------|----------|
-| Surface (default) | `paper` | `#F4EFE6` | `--paper` | Page background, card surfaces |
-| Surface (dimmed) | `paper-2` | `#EAE3D5` | n/a | Section bands, sample-dossier shelf |
-| Ink | `ink` | `#1A1B1E` | `--ink` | All body copy, primary buttons, masthead rule |
-| Accent | `scarlet` | `#B22A2A` | `--scarlet` | Footnote numerals, hero accent, citation rules, hover states |
-| Muted | `graphite` | `#6B6660` | `--graphite` | Captions, metadata, JetBrains Mono labels |
-| Highlight | `ochre` | `#C99A2D` | `--ochre` | Pulse dot, ochre stat block on the 404 frame, sparing callouts |
+| Role | Token | Hex | CSS var | Anthropic-ref equivalent | Used for |
+|------|-------|-----|---------|--------------------------|----------|
+| Surface (page base) | `canvas` | `#FAFAF8` | `--canvas` | `#faf9f5` (Ivory Light) | Page background, default surface |
+| Surface (elevated) | `canvas-2` | `#F4F4F0` | `--canvas-2` | `#f0eee6` (Ivory Medium) | Sample band, footer band, pricing card default |
+| Surface (tertiary) | `canvas-3` | `#ECECEA` | `--canvas-3` | `#e3dacc` (Oat) | Tertiary fills (reserved) |
+| Surface (paper-white) | `paper-white` | `#FFFFFF` | `--paper-white` | n/a | Dossier shelf inner page; highlighted pricing tier |
+| Ink (primary) | `ink` | `#141413` | `--ink` | `#141413` (Slate Dark) | All body copy, borders, dark feature card |
+| Ink (medium) | `ink-medium` | `#3D3D3A` | `--ink-medium` | `#3d3d3a` (Slate Medium) | Mid-dark borders, focus rings |
+| Ink (light) | `ink-light` | `#5E5D59` | `--ink-light` | `#5e5d59` (Slate Light) | Tertiary text, captions |
+| Muted | `graphite` | `#87867F` | `--graphite` | `#87867f` (Cloud Dark) | Mono labels, secondary text |
+| Cloud | `cloud` | `#B0AEA5` | `--cloud` | `#b0aea5` (Cloud Medium) | Disabled/muted UI chrome |
+| Accent (primary) | `scarlet` | `#B22A2A` | `--scarlet` | `#d97757` (Clay) — Cited brand override | Footnote numerals, section under-rules, scarlet emph |
+| Accent (highlight) | `ochre` | `#C99A2D` | `--ochre` | n/a | Pulse dot, ochre stat block on 404 frame |
 
-**Contrast.** All foreground/background combinations meet WCAG AA 4.5:1 for body and 3:1 for large display: ink-on-paper 14.6:1, graphite-on-paper 4.7:1, scarlet-on-paper 5.4:1, paper-on-ink 14.6:1, ochre-on-ink 6.7:1.
+**Contrast.** ink-on-canvas 16.4:1; ink-light-on-canvas 7.1:1; graphite-on-canvas 4.6:1; scarlet-on-canvas 5.4:1; canvas-on-ink 16.4:1; ochre-on-ink 6.7:1. All pairs meet WCAG AA.
 
-**Forbidden combinations.** Scarlet text on ochre, ochre text on paper, graphite-on-paper-2 below 14px.
+**Hairlines.** Borders are color-mix derivatives of `--ink`: `--hairline-soft` (6%), `--hairline` (9%), `--hairline-strong` (12%), `--hairline-emphatic` (18%). Used in place of flat gray borders so the line responds to canvas warmth.
+
+**Forbidden combinations.** Scarlet text on ochre; ochre text on canvas; graphite below 14px on `canvas-2`. Pure black `#000000` and pure white `#FFFFFF` are reserved — `paper-white` only appears inside the dossier shelf and the highlighted pricing tier.
 
 ## 5. Typography
 
-Three families. No fourth font.
+Three families. No fourth font. **Inter is BANNED** in this project. Body grotesque is **Geist** (Anthropic Sans-class), display serif is **Source Serif 4** (Anthropic Serif / Tiempos / PP Editorial New-class), mono is **Geist Mono** (Anthropic Mono / JetBrains Mono-class).
 
-| Role | Family | Weights | Used at | Reason |
-|------|--------|---------|---------|--------|
-| Display | **Source Serif 4** | 400, 600, 900 (+ italic 400) | Hero 56-112px, sections 40-56px, long-form 18-26px | Transitional serif tuned for body and display; signals editorial trust. Used by The Atlantic. |
-| Body | **Inter** | 400, 500, 600 | Body 15-17px, UI 14px, labels 11px | Neutral, high-legibility sans; pairs cleanly with Source Serif. |
-| Mono | **JetBrains Mono** | 400, 500 | Footnote numerals, labels in 10/11px caps, dossier metadata | Wide character body; reads as machine output rather than copy. |
+| Role | Family | Weights | Used at | Anthropic-ref equivalent | Reason |
+|------|--------|---------|---------|--------------------------|--------|
+| Display | **Source Serif 4** | 400, 500, 600, 700, 900 (+ italic 400) | Hero 61-91px, sections 40-56px, dossier prose 18px | `--font-anthropic-serif` (substitute Playfair / Lora) | Transitional serif at display scale; mirrors the Anthropic-ref dark-card masthead inversion. |
+| Body | **Geist** | 300, 400, 500, 600, 700 | Body 15-18px, UI 15px, labels 11px | `--font-anthropic-sans` (substitute Inter / DM Sans) | Premium grotesk with tight tracking at display sizes; replaces Inter (which is BANNED in this project). |
+| Mono | **Geist Mono** | 400, 500 | Footnote numerals, mono labels (DATE, CATEGORY), dossier metadata | `--font-anthropic-mono` (substitute JetBrains Mono / IBM Plex Mono) | Tabular numerals; signals "data" or "classification" within editorial layout. |
 
-Loaded from Google Fonts in `globals.css` with `display=swap`. The pairing rationale is documented in [`docs/01-brand-identity.md`](docs/01-brand-identity.md) — serif display + neutral sans body is the editorial pairing (cf. The Atlantic, FT). It is deliberately *not* the all-sans tech aesthetic.
+Loaded from Google Fonts in `globals.css` with `display=swap`.
 
-**Type scale (display).** 18 / 22 / 28 / 34 / 40 / 44 / 56 / 64 / 88 / 112 px. **Body scale.** 11 / 12 / 13 / 14 / 15 / 17 / 19 / 22 px. **Letter-spacing.** Display tightens by `-0.012em`; mono labels open to `2px` for caps.
+**Type scale — direct lift from Anthropic ref `/Users/keer/projects/prin7r/design-references/anthropic.md` §"Type Scale".**
+
+| Role | Size | Line height | Letter spacing | CSS var | Tailwind |
+|------|------|-------------|----------------|---------|----------|
+| caption | 12px | 1.3 | — | `--text-caption` | `text-caption` |
+| body-sm | 15px | 1.4 | -0.03px | `--text-body-sm` | `text-body-sm` |
+| body | 16px | 1.4 | — | `--text-body` | `text-body` |
+| subheading | 18px | 1.4 | — | `--text-subheading` | `text-subheading` |
+| heading-sm | 20px | 1.4 | — | `--text-heading-sm` | `text-heading-sm` |
+| heading | 24px | 1.3 | -0.12px | `--text-heading` | `text-heading` |
+| heading-lg | 61px (clamp 40-61) | 1.1 | -1.22px | `--text-heading-lg` | `t-heading-lg` (CSS class) |
+| display | 91px (clamp 56-91) | 1.1 | — | `--text-display` | `t-display` (CSS class) |
+
+**Emphasis system — the brand signature.** Selected keywords inside display-scale headlines wear a thick text-decoration underline (`.emph` for ink, `.emph-scarlet` for scarlet variant). This is the Anthropic-ref pattern lifted directly: emphasis is typographic, never color, never bold-weight-shift. Underline thickness scales with type (`0.06em`) — thick at 91px, hair at 18px. This pattern signals the editorial hand on the page; it is the SAME mechanic used for footnote markings on a printed broadsheet, transposed onto headlines.
 
 ## 6. Spacing, radius, shadows, and borders
 
@@ -184,5 +206,6 @@ Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, 
 
 | Date | Change | Reviewer |
 |------|--------|----------|
+| 2026-05-08 | **Round-2 redesign — Anthropic reference applied.** Lifted from `/Users/keer/projects/prin7r/design-references/anthropic.md`: type scale (12 / 15 / 18 / 20 / 24 / 61 / 91 px), display tracking `-1.22px`, leading 1.1 at display, body grotesque swap **Inter → Geist** (Inter banned), display serif unchanged (Source Serif 4 stays as Anthropic Serif substitute), word-level underline emphasis on hero & section headlines (`.emph` / `.emph-scarlet` — the new brand signature), 0px button radius with asymmetric 0/0/8/8 on primary CTA (Anthropic ref signature), 8px card radius, 24px feature-card radius, dark editorial feature card on `#141413` for the 404 frame, hairlines via `color-mix()`, ink scale broadened (ink / ink-medium / ink-light / graphite / cloud). **Hard override per product owner: canvas swapped warm-paper beige → milky `#FAFAF8`** (no beige rule). DESIGN.md §1, §4, §5 rewritten; screenshots recaptured. | Wave 2 redesign agent (round 2) |
 | 2026-05-08 | Wave 2 polish pass — DESIGN.md created with all 15 sections; screenshots captured (`landing-desktop.png`, `landing-mobile.png`); NOWPayments crypto checkout integration added (`/api/checkout/nowpayments` route + Pricing CTAs + IPN webhook); `.env.example` extended with `NOWPAYMENTS_*` keys. | Chief of Design |
 | 2026-05-07 | Initial Wave 2 batch 1 build — `apps/landing` shipped (8 sections); `apps/app` Wasp scaffold deferred. Brand identity locked in `docs/01-brand-identity.md`. | Wave 2 batch agent |

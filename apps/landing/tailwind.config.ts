@@ -1,5 +1,9 @@
 import type { Config } from "tailwindcss";
 
+/* [CITED_REDESIGN_R2] 2026-05-08 — tokens lifted from
+ * design-references/anthropic.md, transposed to a milky-white canvas
+ * (no beige per user override). */
+
 const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,23 +12,69 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#F4EFE6",
-        "paper-2": "#EAE3D5",
-        ink: "#1A1B1E",
+        // Milky-white canvas — replaces Anthropic's #faf9f5 ivory per user override.
+        canvas: "#FAFAF8",
+        "canvas-2": "#F4F4F0",
+        "canvas-3": "#ECECEA",
+        "paper-white": "#FFFFFF",
+
+        // Ink scale — Anthropic slate range, retained.
+        ink: "#141413",
+        "ink-medium": "#3D3D3A",
+        "ink-light": "#5E5D59",
+        graphite: "#87867F",
+        cloud: "#B0AEA5",
+        "cloud-light": "#D1CFC5",
+
+        // Cited brand accent (scarlet) — kept; Anthropic clay/ember held in reserve.
         scarlet: "#B22A2A",
-        graphite: "#6B6660",
+        ember: "#C6613F",
         ochre: "#C99A2D",
+        olive: "#788C5D",
+
+        // Hairline tokens — color-mix-style derived alphas.
+        "hairline-soft": "rgba(20,20,19,0.06)",
+        hairline: "rgba(20,20,19,0.09)",
+        "hairline-strong": "rgba(20,20,19,0.12)",
+        "hairline-emphatic": "rgba(20,20,19,0.18)",
       },
       fontFamily: {
-        display: ['"Source Serif 4"', "Georgia", "serif"],
-        body: ['"Inter"', "system-ui", "sans-serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
+        // Editorial serif — Anthropic Serif substitute (Source Serif 4 / Tiempos / PP Editorial New).
+        display: ['"Source Serif 4"', '"Tiempos Headline"', "Georgia", "serif"],
+        // Body / UI grotesque — Anthropic Sans substitute. INTER IS BANNED.
+        body: ['"Geist"', "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
+        mono: ['"Geist Mono"', '"JetBrains Mono"', "ui-monospace", "monospace"],
+      },
+      fontSize: {
+        // Direct lift of Anthropic ref type scale.
+        caption: ["12px", { lineHeight: "1.3" }],
+        "body-sm": ["15px", { lineHeight: "1.4", letterSpacing: "-0.03px" }],
+        body: ["16px", { lineHeight: "1.4" }],
+        subheading: ["18px", { lineHeight: "1.4" }],
+        "heading-sm": ["20px", { lineHeight: "1.4" }],
+        heading: ["24px", { lineHeight: "1.3", letterSpacing: "-0.12px" }],
+        "heading-lg": ["61px", { lineHeight: "1.1", letterSpacing: "-1.22px" }],
+        display: ["91px", { lineHeight: "1.1" }],
       },
       letterSpacing: {
         masthead: "2px",
+        display: "-1.22px",
       },
       maxWidth: {
-        prose: "1140px",
+        prose: "1200px",     // Anthropic page max-width.
+        column: "1140px",    // narrower content column.
+      },
+      borderRadius: {
+        // Anthropic ref: 0 / 8 / 16 / 24 — square buttons, rounded cards/feature cards.
+        none: "0px",
+        card: "8px",
+        panel: "16px",
+        "feature-card": "24px",
+      },
+      spacing: {
+        section: "76px",
+        "section-lg": "84px",
+        card: "31px",
       },
     },
   },

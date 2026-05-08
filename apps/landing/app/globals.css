@@ -1,16 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,900;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+/* [CITED_REDESIGN_R2] 2026-05-08 — Wave 2 round-2 redesign.
+ * Reference: design-references/anthropic.md ("Research journal printed on warm stone").
+ * Hard override per user: NO BEIGE / NO WARM-PAPER. Canvas swapped to milky white.
+ * Lifted from reference: type scale (61px/91px/24px/18px/15px), display tracking -1.22px,
+ *   leading 1.1 at display, leading 1.4 at body, underline-as-emphasis on key headline words,
+ *   compact 4px base unit, hard-edge surfaces (no shadows).
+ * Inter is BANNED. Body grotesque = Geist; display serif = Source Serif 4 (Tiempos/PP-Editorial-class). */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --paper: #f4efe6;
-  --paper-2: #eae3d5;
-  --ink: #1a1b1e;
+  /* ---------------- Surfaces (no beige; Anthropic structure transposed to milky white) ---------------- */
+  --canvas: #fafaf8;        /* page base — milky white (replaces Anthropic's #faf9f5 ivory) */
+  --canvas-2: #f4f4f0;      /* elevated/dimmed band — replaces #f0eee6 ivory-medium */
+  --canvas-3: #ececea;      /* tertiary card — replaces #e3dacc oat */
+  --paper-white: #ffffff;   /* dossier shelf inner page */
+
+  /* ---------------- Ink scale (lifted from Anthropic's slate range) ---------------- */
+  --ink: #141413;            /* slate-dark — primary text + borders */
+  --ink-medium: #3d3d3a;     /* slate-medium — borders on focus */
+  --ink-light: #5e5d59;      /* slate-light — captions */
+  --graphite: #87867f;       /* cloud-dark — secondary text */
+  --cloud: #b0aea5;          /* cloud-medium — disabled / muted chrome */
+  --cloud-light: #d1cfc5;    /* cloud-light — dividers */
+
+  /* ---------------- Accent (Cited brand: scarlet kept; ochre held in reserve) ---------------- */
   --scarlet: #b22a2a;
-  --graphite: #6b6660;
+  --ember: #c6613f;
   --ochre: #c99a2d;
+  --olive: #788c5d;
+
+  /* ---------------- Hairlines (color-mix derivatives of ink) ---------------- */
+  --hairline-soft: color-mix(in srgb, var(--ink) 6%, transparent);
+  --hairline: color-mix(in srgb, var(--ink) 9%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--ink) 12%, transparent);
+  --hairline-emphatic: color-mix(in srgb, var(--ink) 18%, transparent);
+
+  /* ---------------- Type scale (lifted directly from Anthropic ref) ---------------- */
+  --text-caption: 12px;
+  --text-body-sm: 15px;
+  --text-body: 16px;
+  --text-subheading: 18px;
+  --text-heading-sm: 20px;
+  --text-heading: 24px;
+  --text-heading-lg: 61px;
+  --text-display: 91px;
+
+  --leading-display: 1.1;
+  --leading-heading: 1.15;
+  --leading-body: 1.4;
+  --leading-prose: 1.55;
+
+  --tracking-display: -1.22px;
+  --tracking-heading-lg: -0.6px;
+  --tracking-heading: -0.12px;
+  --tracking-body-sm: -0.03px;
+
+  /* ---------------- Spacing (Anthropic 4 / 8 / 12 / 16 / 32 / 76 / 84) ---------------- */
+  --section-gap: 76px;
+  --card-pad: 31px;
+  --page-max-width: 1200px;
 }
 
 * {
@@ -20,52 +73,112 @@
 
 html,
 body {
-  background: var(--paper);
+  background: var(--canvas);
   color: var(--ink);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-body {
-  background-image: radial-gradient(rgba(26, 27, 30, 0.018) 1px, transparent 1px);
-  background-size: 3px 3px;
+  font-family: "Geist", ui-sans-serif, -apple-system, system-ui, sans-serif;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: var(--tracking-body-sm);
 }
 
 ::selection {
-  background: var(--scarlet);
-  color: var(--paper);
+  background: var(--ink);
+  color: var(--canvas);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  transition: opacity 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+              color 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
 a:hover {
-  border-bottom-color: currentColor;
+  opacity: 0.7;
 }
 
-a.scarlet:hover {
-  border-bottom-color: var(--scarlet);
-}
+/* ---------------- Type families ---------------- */
 
 .font-display {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Source Serif 4", "Tiempos Headline", Georgia, serif;
   letter-spacing: -0.012em;
+  font-feature-settings: "ss01", "ss02";
+}
+
+.font-body {
+  font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-mono {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "tnum";
 }
+
+/* ---------------- Type scale utilities ---------------- */
+
+.t-display {
+  font-size: clamp(56px, 8.4vw, var(--text-display));
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.t-heading-lg {
+  font-size: clamp(40px, 6.4vw, var(--text-heading-lg));
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-heading-lg);
+}
+
+.t-heading {
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.t-subheading {
+  font-size: var(--text-subheading);
+  line-height: var(--leading-body);
+}
+
+.t-body-sm {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body-sm);
+}
+
+.t-caption {
+  font-size: var(--text-caption);
+  line-height: 1.3;
+}
+
+/* ---------------- Word-level underline emphasis (the BRAND SIGNATURE) ----------------
+ * Lifted from Anthropic ref §"Typographic Emphasis System" — selected
+ * keywords inside display headlines wear a thick underline; never color, never weight shift.
+ * For Cited's brand, we preserve the editorial footnote feel by using a 2-3px ink underline
+ * with a 2px gap (offset) — reads like an editor's hand, not a markdown link. */
+.emph {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-decoration-thickness: 0.06em;       /* scales with type — thick at 91px, hair at 18px */
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: none;
+}
+
+.emph-scarlet {
+  text-decoration: underline;
+  text-decoration-color: var(--scarlet);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: none;
+}
+
+/* ---------------- Hairlines and rules ---------------- */
 
 .masthead-rule {
   display: block;
   height: 1px;
   background: var(--ink);
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .scarlet-rule {
@@ -74,28 +187,56 @@ a.scarlet:hover {
   background: var(--scarlet);
 }
 
+.section-rule {
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.thin-rule {
+  border-top: 1px solid var(--hairline);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--hairline-strong);
+}
+
+/* ---------------- Editorial mono labels ---------------- */
+
 .label {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--graphite);
+  font-feature-settings: "tnum";
+}
+
+.label-mono {
+  font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--graphite);
+  font-feature-settings: "tnum";
 }
 
 .footnote-num {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.7em;
   color: var(--scarlet);
   vertical-align: super;
   margin-left: 1px;
   text-decoration: none;
-  border-bottom: none;
 }
+
+/* ---------------- Reveal / motion ---------------- */
 
 @keyframes type-reveal {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -104,55 +245,82 @@ a.scarlet:hover {
 }
 
 .reveal {
-  animation: type-reveal 380ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation: type-reveal 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .reveal-2 {
-  animation: type-reveal 380ms 120ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation: type-reveal 520ms 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .reveal-3 {
-  animation: type-reveal 380ms 240ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation: type-reveal 520ms 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes pulse-ochre {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 .pulse-dot {
-  animation: pulse-ochre 1.6s ease-in-out infinite;
+  animation: pulse-ochre 1.8s ease-in-out infinite;
 }
 
-.section-rule {
-  border-top: 1px solid rgba(26, 27, 30, 0.16);
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-2,
+  .reveal-3 {
+    animation: none;
+  }
+  .pulse-dot {
+    animation: none;
+    opacity: 1;
+  }
 }
 
-.thin-rule {
-  border-top: 1px solid rgba(26, 27, 30, 0.12);
-}
+/* ---------------- Buttons ----------------
+ * Lifted from Anthropic ref: borderRadius 0px, 1px ink border, 12px 31px padding,
+ * 15px Geist medium. Primary CTA uses asymmetric radius (flat top, rounded bottom 8px) —
+ * Anthropic's signature formal device.  */
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 22px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
+  gap: 10px;
+  padding: 12px 31px;
+  font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   border: 1px solid var(--ink);
   background: var(--ink);
-  color: var(--paper);
-  border-radius: 0;
+  color: var(--canvas);
+  border-radius: 0px;
   cursor: pointer;
-  transition: all 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  transition: background 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    border-color 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    color 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 120ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.btn-primary {
+  /* Asymmetric radius signature — flat top, rounded bottom only. */
+  border-radius: 0 0 8px 8px;
 }
 
 .btn:hover {
-  background: var(--scarlet);
-  border-color: var(--scarlet);
-  color: var(--paper);
+  background: var(--canvas);
+  color: var(--ink);
+  border-color: var(--ink);
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-ghost {
@@ -162,12 +330,43 @@ a.scarlet:hover {
 
 .btn-ghost:hover {
   background: var(--ink);
-  color: var(--paper);
+  color: var(--canvas);
+  opacity: 1;
+}
+
+.btn-on-dark {
+  background: var(--canvas);
+  color: var(--ink);
+  border-color: var(--canvas);
+}
+
+.btn-on-dark:hover {
+  background: var(--ink);
+  color: var(--canvas);
+  border-color: var(--canvas);
+  opacity: 1;
+}
+
+/* ---------------- Surfaces ---------------- */
+
+.surface-elevated {
+  /* Anthropic's #f0eee6 nav background — recolored milky. */
+  background: var(--canvas-2);
+}
+
+.surface-tertiary {
+  background: var(--canvas-3);
+}
+
+.surface-feature-dark {
+  background: var(--ink);
+  color: var(--canvas);
+  border-radius: 24px;
 }
 
 .dossier-frame {
-  background: #faf6ee;
-  border: 1px solid rgba(26, 27, 30, 0.18);
+  background: var(--paper-white);
+  border: 1px solid var(--hairline-emphatic);
   position: relative;
 }
 
@@ -175,6 +374,21 @@ a.scarlet:hover {
   content: "";
   position: absolute;
   inset: 8px;
-  border: 1px solid rgba(26, 27, 30, 0.06);
+  border: 1px solid var(--hairline-soft);
   pointer-events: none;
+}
+
+/* ---------------- Release card (Anthropic ref §Release Card) ---------------- */
+
+.release-card {
+  background: var(--canvas-2);
+  border-radius: 8px;
+  padding: 31px;
+  border: 1px solid var(--hairline-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.release-card.alt {
+  background: var(--canvas-3);
 }
