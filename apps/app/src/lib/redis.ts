@@ -4,7 +4,7 @@
  * Uses ioredis for Redis Streams support (XADD, XRANGE, etc.).
  */
 
-import Redis from "ioredis";
+import { Redis } from "ioredis";
 import { optionalEnv } from "./env.js";
 import { logger } from "./logger.js";
 

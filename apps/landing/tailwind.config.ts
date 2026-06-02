@@ -12,10 +12,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Milky-white canvas — replaces Anthropic's #faf9f5 ivory per user override.
+        // [ONEWEEKBRIEF_NEUTRAL_2026-06-02] Neutralized — milky white (no warm cast).
         canvas: "#FAFAF8",
-        "canvas-2": "#F4F4F0",
-        "canvas-3": "#ECECEA",
+        "canvas-2": "#F2F2F2",      // TRUE neutral cool gray (was #F4F4F0 warm-cream)
+        "canvas-3": "#E8E8E8",      // TRUE neutral cool gray (was #ECECEA)
         "paper-white": "#FFFFFF",
 
         // Ink scale — Anthropic slate range, retained.
@@ -26,11 +26,13 @@ const config: Config = {
         cloud: "#B0AEA5",
         "cloud-light": "#D1CFC5",
 
-        // OneWeekBrief brand accent (scarlet) — kept; Anthropic clay/ember held in reserve.
-        scarlet: "#B22A2A",
-        ember: "#C6613F",
-        ochre: "#C99A2D",
-        olive: "#788C5D",
+        // [ONEWEEKBRIEF_NEUTRAL_2026-06-02] Accents demoted to documented micro-accent
+        // (small type, footnote numerals, hairline, logo bar) — NOT primary CTA fill,
+        // NOT section under-rule, NOT stat numbers. See DESIGN.md §4.
+        scarlet: "#B22A2A",         // micro-accent (footnote nums, "—" bullets, logo underbar)
+        ember: "#7A6A60",           // neutral warm-gray (held in reserve, not in use)
+        ochre: "#5E5D59",           // neutralized: was #C99A2D (warm yellow) → ink-light gray
+        olive: "#6E6E68",           // neutralized: was #788C5D (olive) → cool gray
 
         // Hairline tokens — color-mix-style derived alphas.
         "hairline-soft": "rgba(20,20,19,0.06)",

@@ -9,8 +9,6 @@ import { test, describe, beforeEach } from "node:test";
 import { checkRateLimit } from "../lib/rate-limit.js";
 
 describe("rate limiter", () => {
-  const ip = "203.0.113.1";
-
   beforeEach(() => {
     // Reset internal state by using a unique IP per test run not possible here;
     // instead we rely on the fact that checkRateLimit uses a module-scoped Map

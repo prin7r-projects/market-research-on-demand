@@ -12,15 +12,16 @@
 
 import { Hono } from "hono";
 import { db } from "../db/index.js";
-import { briefs, orders, events, users } from "../db/schema.js";
+import { briefs, orders, events } from "../db/schema.js";
 import { logger } from "../lib/logger.js";
 import { optionalEnv } from "../lib/env.js";
 import { verifyNowpaymentsIpn } from "../lib/nowpayments.js";
 import { pushBriefSubmitted } from "../lib/redis.js";
 import { sendQueueConfirmation } from "../lib/postmark.js";
 import { eq } from "drizzle-orm";
+import type { OneWeekBriefEnv } from "../types/hono.js";
 
-export const webhooksRoute = new Hono();
+export const webhooksRoute = new Hono<OneWeekBriefEnv>();
 
 webhooksRoute.post("/", async (c) => {
   const correlationId = c.get("correlationId");
@@ -42,7 +43,7 @@ webhooksRoute.post("/", async (c) => {
   }
 
   const signature = c.req.header("x-nowpayments-sig");
-  const verified = verifyNowpaymentsIpn(payload, signature, secret);
+  const verified = verifyNowpaymentsIpn(payload, signature ?? null, secret);
   if (!verified) {
     return c.json({ error: "signature_invalid" }, 401);
   }

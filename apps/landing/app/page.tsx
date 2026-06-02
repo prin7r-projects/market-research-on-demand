@@ -15,9 +15,19 @@ import { PricingCta, type PricingPlanId } from "./pricing-cta";
  *   - release-card grid with mono metadata labels (DATE, CATEGORY)
  * Kept from OneWeekBrief brand:
  *   - "OneWeekBrief" wordmark with scarlet underbar
- *   - Scarlet accent for footnote numerals + section under-rules
- *   - Pulse-dot ochre kicker
+ *   - Scarlet accent for footnote numerals + "—" bullets + "Most picked" tier label
+ *   - Pulse-dot ochre kicker (now neutral gray — ochre token neutralized 2026-06-02)
  *   - Editorial voice (Vol. 01 — A Prin7r Edition — 2026)
+ *
+ * [ONEWEEKBRIEF_NEUTRAL_2026-06-02] Wave 2 design fix (PRI-3521).
+ *   - Section under-rules that were 2px scarlet are now 1px ink/55 hairlines
+ *     (width 40px). Scarlet is no longer used as a section under-rule.
+ *   - Pulse-dot color and 404-frame stat numbers are now `bg-ink-light` /
+ *     `text-ink-light` (the neutralized ochre). The dot still pulses.
+ *   - The dark 404-frame label "Section 04 — The 404 problem" keeps its
+ *     semantic amber cue via the `text-canvas/55` opacity pass; the word
+ *     "ochre" in CSS is now `#5E5D59` (neutral) — but on the dark card we
+ *     render the label in a paper-white tone for legibility.
  */
 
 export default function HomePage() {
@@ -61,7 +71,7 @@ function Logo() {
   return (
     <span className="inline-flex flex-col items-start" aria-label="OneWeekBrief">
       <span className="font-display font-black text-[34px] leading-none tracking-tight">O</span>
-      <span className="block w-[58px] h-[2px] bg-scarlet mt-[2px]" />
+      <span className="block w-[40px] h-[1px] bg-ink/55 mt-[3px]" />
       <span className="font-mono text-[8.5px] tracking-[3px] text-graphite uppercase mt-[2px]">oneweekbrief.</span>
     </span>
   );
@@ -80,7 +90,7 @@ function Hero() {
     <section className="hairline-b">
       <div className="mx-auto max-w-prose px-6 md:px-10 pt-24 md:pt-[96px] pb-24 md:pb-[120px]">
         <div className="flex items-center gap-3 reveal">
-          <span className="inline-block w-[7px] h-[7px] rounded-full bg-ochre pulse-dot" />
+          <span className="inline-block w-[7px] h-[7px] rounded-full bg-ink-light pulse-dot" />
           <span className="label">Filed under — research as a service</span>
         </div>
 
@@ -149,7 +159,7 @@ function Arrow() {
 }
 
 /* ---------------- Sample dossier excerpt ----------------
- * Section bg: surface-elevated (#F4F4F0 — milky-white "elevated" band, not beige).
+ * Section bg: surface-elevated (#F2F2F2 — neutral cool gray "elevated" band, not beige).
  * Inner dossier shelf: pure paper white #FFFFFF + double hairline (Anthropic-style).
  */
 
@@ -186,7 +196,7 @@ function SampleExcerpt() {
           <p className="font-mono text-[11px] tracking-[0.12em] text-graphite mt-3 uppercase">
             DRAFTED 2026-04-18 · EDITED A. PAVLOV · 14 SOURCES · 1,412 WORDS
           </p>
-          <span className="block w-[58px] h-[2px] bg-scarlet mt-5" />
+          <span className="block w-[40px] h-[1px] bg-ink/55 mt-5" />
 
           <div className="mt-8 font-display text-[18px] leading-[1.7] text-ink space-y-5">
             <p>
@@ -297,7 +307,7 @@ function HowItWorks() {
               <div className="mt-4 font-display text-[64px] md:text-[72px] font-bold text-ink leading-[0.85] tracking-[-0.03em]">
                 {s.n}
               </div>
-              <span className="block w-7 h-[2px] bg-scarlet mt-5" />
+              <span className="block w-7 h-[1px] bg-ink/55 mt-5" />
               <h3 className="font-display font-semibold text-[24px] mt-4 leading-[1.2]">{s.t}</h3>
               <p className="text-ink-light mt-3 t-body-sm leading-[1.6]">{s.d}</p>
             </div>
@@ -320,14 +330,14 @@ function FourOhFour() {
         <div className="surface-feature-dark px-8 md:px-14 py-14 md:py-[76px]">
           <div className="grid md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-6">
-              <div className="label" style={{ color: "var(--ochre)" }}>Section 04 — The 404 problem</div>
+              <div className="label" style={{ color: "var(--ink-light)" }}>Section 04 — The 404 problem</div>
               {/* Heading uses Anthropic Serif at display scale on dark surface — the broadsheet masthead inversion. */}
               <h2 className="mt-6 font-display font-semibold text-[44px] md:text-[64px] leading-[1.04] tracking-[-0.02em] text-balance">
                 LLMs make footnotes that <span className="italic">look</span> real.
                 <br />
                 We make footnotes that <span className="emph-scarlet">resolve</span>.
               </h2>
-              <span className="block w-[58px] h-[2px] bg-scarlet mt-7" />
+              <span className="block w-[40px] h-[1px] bg-ink/55 mt-7" />
               <p className="mt-8 max-w-md text-canvas/75 t-subheading leading-[1.55]">
                 Generative tools cite. The desk verifies. Two stats from our
                 own cite-check audit.
@@ -335,14 +345,14 @@ function FourOhFour() {
             </div>
             <div className="md:col-span-6 grid grid-cols-2 gap-x-10 gap-y-12">
               <div>
-                <div className="font-display text-[64px] md:text-[80px] font-bold leading-[0.9] text-ochre tracking-[-0.025em]">11.4%</div>
+                <div className="font-display text-[64px] md:text-[80px] font-bold leading-[0.9] text-canvas tracking-[-0.025em]">11.4%</div>
                 <p className="text-canvas/75 mt-4 t-body-sm leading-[1.6]">
                   Of LLM-proposed citations, on a 1,200-claim audit run by our
                   engine, didn't resolve to the claim they were meant to support.
                 </p>
               </div>
               <div>
-                <div className="font-display text-[64px] md:text-[80px] font-bold leading-[0.9] text-ochre tracking-[-0.025em]">6/10</div>
+                <div className="font-display text-[64px] md:text-[80px] font-bold leading-[0.9] text-canvas tracking-[-0.025em]">6/10</div>
                 <p className="text-canvas/75 mt-4 t-body-sm leading-[1.6]">
                   Audited Q4-2025 venture decks contained at least one cited URL
                   that 404'd or pointed to the wrong page.
@@ -367,7 +377,7 @@ function FourOhFour() {
 }
 
 /* ---------------- Pricing ----------------
- * Anthropic ref §"Release Card Grid": cards on canvas-2 (#F4F4F0)
+ * Anthropic ref §"Release Card Grid": cards on canvas-2 (#F2F2F2 — neutral cool gray)
  * with 8px radius; uniform border-radius; mono labels for SLA.  */
 
 type PricingTier = {
@@ -483,7 +493,7 @@ function Pricing() {
                 {t.price}
               </div>
               <div className="text-graphite text-[13px] mt-2">{t.cadence}</div>
-              <span className="block w-7 h-[2px] bg-scarlet mt-6" />
+              <span className="block w-7 h-[1px] bg-ink/55 mt-6" />
               <div className="font-mono text-[11px] tracking-[0.18em] text-graphite uppercase mt-5">
                 {t.sla}
               </div>
@@ -586,7 +596,7 @@ function Cta() {
             <br />
             We&apos;ll have it back to you <span className="emph-scarlet italic font-normal">by Friday</span>.
           </h2>
-          <span className="block w-[58px] h-[2px] bg-scarlet mt-9" />
+          <span className="block w-[40px] h-[1px] bg-ink/55 mt-9" />
           <p className="mt-10 max-w-xl text-ink-light t-subheading leading-[1.6]">
             The brief intake form opens once you&apos;ve read at least one sample.
             That is intentional — your first brief converts at a higher rate
@@ -686,7 +696,7 @@ function SectionHeader({
           </>
         )}
       </h2>
-      <span className="block w-[58px] h-[2px] bg-scarlet mt-7" />
+      <span className="block w-[40px] h-[1px] bg-ink/55 mt-7" />
     </div>
   );
 }

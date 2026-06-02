@@ -81,8 +81,7 @@ export async function createNowpaymentsInvoice(input: CreateInvoiceInput): Promi
       "content-type": "application/json",
       "x-api-key": apiKey
     },
-    body: JSON.stringify(body),
-    cache: "no-store"
+    body: JSON.stringify(body)
   });
 
   const text = await response.text();

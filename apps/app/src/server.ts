@@ -8,6 +8,7 @@
  */
 
 import { Hono } from "hono";
+import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
 import { logger as honoLogger } from "hono/logger";
 import { checkConnection } from "./db/index.js";
@@ -15,8 +16,9 @@ import { logger } from "./lib/logger.js";
 import { healthRoute } from "./routes/health.js";
 import { briefsRoute } from "./routes/briefs.js";
 import { webhooksRoute } from "./routes/webhooks.js";
+import type { OneWeekBriefEnv } from "./types/hono.js";
 
-const app = new Hono();
+const app = new Hono<OneWeekBriefEnv>();
 
 app.use("*", honoLogger());
 app.use(
@@ -70,7 +72,7 @@ app.onError((err, c) => {
 
 const port = Number(process.env.PORT ?? 8080);
 
-async function startup() {
+async function startup(): Promise<void> {
   const dbConnected = await checkConnection();
   if (dbConnected) {
     logger.info("Database connected");
@@ -78,16 +80,24 @@ async function startup() {
     logger.warn("No database connection. Persistence will fail.");
   }
 
-  logger.info(`OneWeekBrief API listening on 0.0.0.0:${port}`);
+  serve(
+    {
+      fetch: app.fetch,
+      port,
+      hostname: "0.0.0.0"
+    },
+    (info) => {
+      logger.info(`OneWeekBrief API listening on http://${info.address}:${info.port}`);
+    }
+  );
 }
 
-startup();
+startup().catch((err) => {
+  logger.error({ err }, "Failed to start OneWeekBrief API");
+  process.exit(1);
+});
 
-export default {
-  fetch: app.fetch,
-  port,
-  hostname: "0.0.0.0"
-};
+export default app;
 
 function makeCorrelationId() {
   const chars = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";

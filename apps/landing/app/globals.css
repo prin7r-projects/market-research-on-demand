@@ -4,7 +4,19 @@
  * Lifted from reference: type scale (61px/91px/24px/18px/15px), display tracking -1.22px,
  *   leading 1.1 at display, leading 1.4 at body, underline-as-emphasis on key headline words,
  *   compact 4px base unit, hard-edge surfaces (no shadows).
- * Inter is BANNED. Body grotesque = Geist; display serif = Source Serif 4 (Tiempos/PP-Editorial-class). */
+ * Inter is BANNED. Body grotesque = Geist; display serif = Source Serif 4 (Tiempos/PP-Editorial-class).
+ *
+ * [ONEWEEKBRIEF_NEUTRAL_2026-06-02] Wave 2 design fix (PRI-3521).
+ * - canvas-2  #F4F4F0 → #F1F1EF (neutral cool gray, no warm cast — used for the
+ *   Sample/WhatWeWontDo/Footer band and pricing tier card)
+ * - canvas-3  #ECECEA → #E7E7E5 (neutral cool gray)
+ * - ochre     #C99A2D → #5E5D59 (ink-light gray; the warm yellow is OUT — the
+ *   404-frame stats and the hero pulse dot are now neutral)
+ * - olive     #788C5D → #6E6E68 (cool gray, not used at the moment)
+ * - scarlet stays #B22A2A but is now restricted to documented micro-accent
+ *   roles: footnote numerals, "—" bullet glyphs, "Most picked" tier label,
+ *   the logo underbar, and `.emph-scarlet` underline on a single word.
+ *   Scarlet is no longer used as a section under-rule or as a primary CTA fill. */
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
@@ -14,25 +26,29 @@
 @tailwind utilities;
 
 :root {
-  /* ---------------- Surfaces (no beige; Anthropic structure transposed to milky white) ---------------- */
+  /* ---------------- Surfaces (NEUTRALIZED 2026-06-02; no warm cast) ---------------- */
   --canvas: #fafaf8;        /* page base — milky white (replaces Anthropic's #faf9f5 ivory) */
-  --canvas-2: #f4f4f0;      /* elevated/dimmed band — replaces #f0eee6 ivory-medium */
-  --canvas-3: #ececea;      /* tertiary card — replaces #e3dacc oat */
+  --canvas-2: #f2f2f2;      /* elevated/dimmed band — neutral cool gray (was #F4F4F0 warm) */
+  --canvas-3: #e8e8e8;      /* tertiary card — neutral cool gray (was #ECECEA) */
   --paper-white: #ffffff;   /* dossier shelf inner page */
 
   /* ---------------- Ink scale (lifted from Anthropic's slate range) ---------------- */
   --ink: #141413;            /* slate-dark — primary text + borders */
   --ink-medium: #3d3d3a;     /* slate-medium — borders on focus */
-  --ink-light: #5e5d59;      /* slate-light — captions */
+  --ink-light: #5e5d59;      /* slate-light — captions — also the new "ochre" */
   --graphite: #87867f;       /* cloud-dark — secondary text */
   --cloud: #b0aea5;          /* cloud-medium — disabled / muted chrome */
-  --cloud-light: #d1cfc5;    /* cloud-light — dividers */
+  --cloud-light: #d6d6d2;    /* cloud-light — dividers — neutralized from #D1CFC5 */
 
-  /* ---------------- Accent (OneWeekBrief brand: scarlet kept; ochre held in reserve) ---------------- */
+  /* ---------------- Accent (DEMOTED 2026-06-02 — micro-accent only) ---------------- */
+  /* scarlet is a documented micro-accent: footnote numerals, "—" bullets, the
+   * "Most picked" tier label, the logo underbar, `.emph-scarlet` underline on
+   * a single word in a headline. NOT used as a section under-rule, NOT used
+   * as a primary CTA fill (the primary CTA is ink-on-canvas). */
   --scarlet: #b22a2a;
-  --ember: #c6613f;
-  --ochre: #c99a2d;
-  --olive: #788c5d;
+  --ember: #7a6a60;          /* held in reserve, not in use — warm-gray */
+  --ochre: #5e5d59;          /* neutralized from #c99a2d (warm yellow) */
+  --olive: #6e6e68;          /* neutralized from #788c5d (olive) */
 
   /* ---------------- Hairlines (color-mix derivatives of ink) ---------------- */
   --hairline-soft: color-mix(in srgb, var(--ink) 6%, transparent);

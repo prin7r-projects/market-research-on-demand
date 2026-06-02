@@ -35,3 +35,6 @@ Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
 .turbo/
+
+# Worker artifacts (generated dossiers)
+artifacts/

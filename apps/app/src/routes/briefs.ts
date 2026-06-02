@@ -16,8 +16,9 @@ import { logger } from "../lib/logger.js";
 import { checkRateLimit } from "../lib/rate-limit.js";
 import { isPlanId, PLANS, createNowpaymentsInvoice } from "../lib/nowpayments.js";
 import { eq } from "drizzle-orm";
+import type { OneWeekBriefEnv } from "../types/hono.js";
 
-export const briefsRoute = new Hono();
+export const briefsRoute = new Hono<OneWeekBriefEnv>();
 
 const tierToSla: Record<string, number> = {
   standard: 72,
