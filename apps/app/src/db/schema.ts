@@ -20,6 +20,13 @@ import { relations } from "drizzle-orm";
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: text("email").notNull().unique(),
+  // [ONEWEEKBRIEF_SCHEMA_DRIFT_2026-06-02] `password_hash` is present in the
+  // live `users` table (inherited from the open-saas scaffold bootstrap in
+  // apps/app/README.md) but is NOT used by the customer-facing brief flow
+  // (auth is via Postmark magic-link, not password). The column is nullable
+  // in production; the brief insert below writes an empty string so the
+  // NOT NULL constraint is satisfied without pretending we have a password.
+  passwordHash: text("password_hash"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 

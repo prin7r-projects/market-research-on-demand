@@ -77,7 +77,15 @@ briefsRoute.post(
       });
 
       if (!user) {
-        const [inserted] = await db.insert(users).values({ email: body.email }).returning();
+        // [ONEWEEKBRIEF_SCHEMA_DRIFT_2026-06-02] The live `users` table has a
+        // NOT NULL `password_hash` column inherited from the open-saas
+        // scaffold. The brief flow uses Postmark magic-link auth, so we
+        // write an empty string to satisfy the constraint. This is a
+        // deliberate, documented divergence from the open-saas default.
+        const [inserted] = await db
+          .insert(users)
+          .values({ email: body.email, passwordHash: "" })
+          .returning();
         user = inserted;
         logger.info({ userId: user.id, correlationId }, "Created new user");
       }
